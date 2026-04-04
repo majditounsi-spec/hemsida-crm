@@ -43,17 +43,21 @@ export default function Navbar() {
               {locale === "sv" ? "EN" : "SV"}
             </button>
             <Link
-              href="/login"
+              href="https://majditounsi-spec.github.io/crm-ads/"
+              target="_blank"
+              rel="noopener noreferrer"
               className="text-sm font-medium text-foreground hover:text-primary transition-colors"
             >
               {t("login")}
             </Link>
-            <Link
-              href="/login"
+            <a
+              href="https://majditounsi-spec.github.io/crm-ads/"
+              target="_blank"
+              rel="noopener noreferrer"
               className="bg-primary text-primary-foreground px-4 py-2 rounded-lg text-sm font-medium hover:opacity-90 transition-opacity"
             >
               {t("getStarted")}
-            </Link>
+            </a>
           </div>
 
           <button

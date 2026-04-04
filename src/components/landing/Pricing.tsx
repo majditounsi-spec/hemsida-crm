@@ -66,8 +66,10 @@ export default function Pricing() {
                     </li>
                   ))}
                 </ul>
-                <Link
-                  href="/login"
+                <a
+                  href="https://majditounsi-spec.github.io/crm-ads/"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className={`mt-8 block text-center py-3 rounded-xl font-medium text-sm transition-all ${
                     isPro
                       ? "bg-primary text-primary-foreground hover:opacity-90 shadow-lg shadow-primary/25"
@@ -75,7 +77,7 @@ export default function Pricing() {
                   }`}
                 >
                   {t(`${plan}.cta`)}
-                </Link>
+                </a>
               </motion.div>
             );
           })}

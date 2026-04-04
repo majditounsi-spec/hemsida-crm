@@ -1,7 +1,7 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import { Link } from "@/i18n/routing";
+// Link to external CRM app
 import { motion } from "framer-motion";
 import { ArrowRight, BarChart3, Users, FolderKanban } from "lucide-react";
 
@@ -31,13 +31,15 @@ export default function Hero() {
           </p>
 
           <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Link
-              href="/login"
+            <a
+              href="https://majditounsi-spec.github.io/crm-ads/"
+              target="_blank"
+              rel="noopener noreferrer"
               className="bg-primary text-primary-foreground px-8 py-3.5 rounded-xl text-base font-semibold hover:opacity-90 transition-all flex items-center gap-2 shadow-lg shadow-primary/25"
             >
               {t("cta")}
               <ArrowRight className="w-4 h-4" />
-            </Link>
+            </a>
             <a
               href="#features"
               className="text-foreground px-8 py-3.5 rounded-xl text-base font-semibold border border-border hover:bg-secondary transition-colors"
