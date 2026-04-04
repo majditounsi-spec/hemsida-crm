@@ -1,0 +1,122 @@
+{
+  "common": {
+    "login": "Log in",
+    "logout": "Log out",
+    "getStarted": "Get Started",
+    "learnMore": "Learn more",
+    "language": "Language",
+    "swedish": "Svenska",
+    "english": "English",
+    "dashboard": "Dashboard",
+    "contacts": "Contacts",
+    "projects": "Projects",
+    "googleAds": "Google ADS",
+    "timeTracking": "Time Tracking",
+    "automations": "Automations",
+    "settings": "Settings",
+    "search": "Search projects, clients...",
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "edit": "Edit",
+    "add": "Add",
+    "loading": "Loading...",
+    "noData": "No data",
+    "back": "Back"
+  },
+  "landing": {
+    "hero": {
+      "title": "Manage clients, projects & ads",
+      "titleHighlight": "in one place",
+      "description": "MarketFlow is the CRM platform built for digital agencies. Track leads, manage projects, monitor ad budgets, and log time — all in one modern interface.",
+      "cta": "Start free",
+      "ctaSecondary": "See demo"
+    },
+    "features": {
+      "title": "Everything you need to grow",
+      "subtitle": "Powerful tools for modern agencies",
+      "contacts": {
+        "title": "Client Management",
+        "description": "Manage all your clients with contact info, budgets, ratings, and status in one place."
+      },
+      "projects": {
+        "title": "Project Management",
+        "description": "Create and track projects with tasks, deadlines, budgets, and team assignments."
+      },
+      "googleAds": {
+        "title": "Google ADS Tracking",
+        "description": "Monitor daily budgets, spending, clicks, and conversions per client."
+      },
+      "timeTracking": {
+        "title": "Time Tracking",
+        "description": "Log work hours per project and view summaries by day and person."
+      },
+      "automations": {
+        "title": "Automations",
+        "description": "Set up rules for reminders, status updates, and budget warnings."
+      },
+      "analytics": {
+        "title": "Reports & Analytics",
+        "description": "Get insights with dashboards, charts, and statistics for your entire business."
+      }
+    },
+    "pricing": {
+      "title": "Simple pricing",
+      "subtitle": "Choose the plan that fits you",
+      "free": {
+        "name": "Free",
+        "price": "$0",
+        "period": "/month",
+        "features": ["Up to 10 clients", "Basic CRM", "1 user", "Email support"],
+        "cta": "Get started free"
+      },
+      "pro": {
+        "name": "Pro",
+        "price": "$49",
+        "period": "/month",
+        "features": ["Unlimited clients", "Google ADS tracking", "Time tracking", "5 users", "Priority support"],
+        "cta": "Start Pro"
+      },
+      "enterprise": {
+        "name": "Enterprise",
+        "price": "Contact us",
+        "period": "",
+        "features": ["Everything in Pro", "Unlimited users", "API access", "Custom automations", "Dedicated support"],
+        "cta": "Contact us"
+      }
+    },
+    "footer": {
+      "brand": "MarketFlow",
+      "tagline": "The CRM platform for digital agencies.",
+      "product": "Product",
+      "company": "Company",
+      "legal": "Legal",
+      "about": "About",
+      "blog": "Blog",
+      "careers": "Careers",
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Service",
+      "rights": "All rights reserved."
+    }
+  },
+  "login": {
+    "title": "Log in to MarketFlow",
+    "description": "Sign in with your Google account to access your CRM.",
+    "googleButton": "Sign in with Google",
+    "terms": "By signing in, you agree to our",
+    "termsLink": "Terms of Service",
+    "and": "and",
+    "privacyLink": "Privacy Policy"
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "welcome": "Welcome back",
+    "activeProjects": "Active Projects",
+    "hoursToday": "Hours Today",
+    "totalBudget": "Total Budget",
+    "totalCustomers": "Total Customers",
+    "recentProjects": "Recent Projects",
+    "budgetOverview": "Budget Overview",
+    "recentTimeEntries": "Recent Time Entries"
+  }
+}

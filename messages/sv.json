@@ -1,0 +1,122 @@
+{
+  "common": {
+    "login": "Logga in",
+    "logout": "Logga ut",
+    "getStarted": "Kom igång",
+    "learnMore": "Läs mer",
+    "language": "Språk",
+    "swedish": "Svenska",
+    "english": "English",
+    "dashboard": "Dashboard",
+    "contacts": "Kontakter",
+    "projects": "Projekt",
+    "googleAds": "Google ADS",
+    "timeTracking": "Tidloggning",
+    "automations": "Automationer",
+    "settings": "Inställningar",
+    "search": "Sök projekt, kunder...",
+    "save": "Spara",
+    "cancel": "Avbryt",
+    "delete": "Radera",
+    "edit": "Redigera",
+    "add": "Lägg till",
+    "loading": "Laddar...",
+    "noData": "Ingen data",
+    "back": "Tillbaka"
+  },
+  "landing": {
+    "hero": {
+      "title": "Hantera kunder, projekt & annonser",
+      "titleHighlight": "på ett ställe",
+      "description": "MarketFlow är CRM-plattformen byggd för digitala byråer. Spåra leads, hantera projekt, övervaka annonsbudgetar och logga tid — allt i ett modernt gränssnitt.",
+      "cta": "Starta gratis",
+      "ctaSecondary": "Se demo"
+    },
+    "features": {
+      "title": "Allt du behöver för att växa",
+      "subtitle": "Kraftfulla verktyg för moderna byråer",
+      "contacts": {
+        "title": "Kundhantering",
+        "description": "Hantera alla dina kunder med kontaktinfo, budgetar, betyg och status på ett ställe."
+      },
+      "projects": {
+        "title": "Projekthantering",
+        "description": "Skapa och följ projekt med uppgifter, deadlines, budgetar och teamtilldelning."
+      },
+      "googleAds": {
+        "title": "Google ADS-spårning",
+        "description": "Övervaka dagliga budgetar, utgifter, klick och konverteringar per kund."
+      },
+      "timeTracking": {
+        "title": "Tidloggning",
+        "description": "Logga arbetstid per projekt och se sammanställningar per dag och person."
+      },
+      "automations": {
+        "title": "Automationer",
+        "description": "Sätt upp regler för påminnelser, statusuppdateringar och budgetvarningar."
+      },
+      "analytics": {
+        "title": "Rapporter & Analys",
+        "description": "Få insikter med dashboards, diagram och statistik för hela verksamheten."
+      }
+    },
+    "pricing": {
+      "title": "Enkel prissättning",
+      "subtitle": "Välj den plan som passar dig",
+      "free": {
+        "name": "Gratis",
+        "price": "0 kr",
+        "period": "/månad",
+        "features": ["Upp till 10 kunder", "Grundläggande CRM", "1 användare", "E-postsupport"],
+        "cta": "Kom igång gratis"
+      },
+      "pro": {
+        "name": "Pro",
+        "price": "499 kr",
+        "period": "/månad",
+        "features": ["Obegränsade kunder", "Google ADS-spårning", "Tidloggning", "5 användare", "Prioriterad support"],
+        "cta": "Starta Pro"
+      },
+      "enterprise": {
+        "name": "Enterprise",
+        "price": "Kontakta oss",
+        "period": "",
+        "features": ["Allt i Pro", "Obegränsade användare", "API-åtkomst", "Anpassade automationer", "Dedikerad support"],
+        "cta": "Kontakta oss"
+      }
+    },
+    "footer": {
+      "brand": "MarketFlow",
+      "tagline": "CRM-plattformen för digitala byråer.",
+      "product": "Produkt",
+      "company": "Företag",
+      "legal": "Juridik",
+      "about": "Om oss",
+      "blog": "Blogg",
+      "careers": "Karriär",
+      "privacy": "Integritetspolicy",
+      "terms": "Villkor",
+      "rights": "Alla rättigheter förbehållna."
+    }
+  },
+  "login": {
+    "title": "Logga in på MarketFlow",
+    "description": "Logga in med ditt Google-konto för att komma åt ditt CRM.",
+    "googleButton": "Logga in med Google",
+    "terms": "Genom att logga in godkänner du våra",
+    "termsLink": "användarvillkor",
+    "and": "och",
+    "privacyLink": "integritetspolicy"
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "welcome": "Välkommen tillbaka",
+    "activeProjects": "Aktiva projekt",
+    "hoursToday": "Timmar idag",
+    "totalBudget": "Total budget",
+    "totalCustomers": "Antal kunder",
+    "recentProjects": "Senaste projekt",
+    "budgetOverview": "Budgetöversikt",
+    "recentTimeEntries": "Senaste tidsloggningar"
+  }
+}
