@@ -3,7 +3,7 @@
 import { useTranslations } from "next-intl";
 import { Link, usePathname, useRouter } from "@/i18n/routing";
 import { Menu, X, Globe } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useLocale } from "next-intl";
 
 export default function Navbar() {
@@ -12,6 +12,13 @@ export default function Navbar() {
   const router = useRouter();
   const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   function switchLocale() {
     const next = locale === "sv" ? "en" : "sv";
@@ -19,49 +26,70 @@ export default function Navbar() {
   }
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-lg border-b border-border">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
-          <Link href="/" className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-sm font-[family-name:var(--font-heading)]">M</span>
+    <nav
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        scrolled
+          ? "glass border-b border-black/[0.04] shadow-[0_1px_3px_rgba(0,0,0,0.04)]"
+          : "bg-transparent"
+      }`}
+    >
+      <div className="max-w-6xl mx-auto px-6">
+        <div className="flex items-center justify-between h-[72px]">
+          <Link href="/" className="flex items-center gap-2.5 group">
+            <div className="w-9 h-9 bg-foreground rounded-[10px] flex items-center justify-center transition-transform duration-300 group-hover:scale-105">
+              <span className="text-background font-bold text-[15px] font-[family-name:var(--font-heading)]">
+                M
+              </span>
             </div>
-            <span className="text-xl font-bold font-[family-name:var(--font-heading)] text-foreground">
+            <span className="text-[17px] font-semibold font-[family-name:var(--font-heading)] text-foreground tracking-tight">
               MarketFlow
             </span>
           </Link>
 
-          <div className="hidden md:flex items-center gap-6">
-            <a href="#features" className="text-muted-foreground hover:text-foreground transition-colors text-sm">
-              {t("learnMore")}
-            </a>
+          <div className="hidden md:flex items-center gap-1">
+            {[
+              { href: "#features", label: locale === "sv" ? "Funktioner" : "Features" },
+              { href: "#pricing", label: locale === "sv" ? "Priser" : "Pricing" },
+            ].map((item) => (
+              <a
+                key={item.href}
+                href={item.href}
+                className="px-4 py-2 text-[14px] text-muted-foreground hover:text-foreground transition-colors duration-200 rounded-full"
+              >
+                {item.label}
+              </a>
+            ))}
+
             <button
               onClick={switchLocale}
-              className="flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors"
+              className="px-3 py-2 text-[13px] text-muted-foreground hover:text-foreground transition-colors duration-200 rounded-full flex items-center gap-1.5"
             >
-              <Globe className="w-4 h-4" />
+              <Globe className="w-[14px] h-[14px]" />
               {locale === "sv" ? "EN" : "SV"}
             </button>
-            <Link
-              href="https://majditounsi-spec.github.io/crm-ads/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-sm font-medium text-foreground hover:text-primary transition-colors"
-            >
-              {t("login")}
-            </Link>
+
+            <div className="w-px h-5 bg-border mx-2" />
+
             <a
               href="https://majditounsi-spec.github.io/crm-ads/"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-primary text-primary-foreground px-4 py-2 rounded-lg text-sm font-medium hover:opacity-90 transition-opacity"
+              className="px-4 py-2 text-[14px] text-muted-foreground hover:text-foreground transition-colors duration-200"
+            >
+              {t("login")}
+            </a>
+            <a
+              href="https://majditounsi-spec.github.io/crm-ads/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-foreground text-background px-5 py-2.5 rounded-full text-[13px] font-medium hover:bg-foreground/90 transition-all duration-200"
             >
               {t("getStarted")}
             </a>
           </div>
 
           <button
-            className="md:hidden p-2"
+            className="md:hidden p-2 -mr-2 text-foreground"
             onClick={() => setMobileOpen(!mobileOpen)}
           >
             {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -70,23 +98,29 @@ export default function Navbar() {
       </div>
 
       {mobileOpen && (
-        <div className="md:hidden bg-white border-b border-border px-4 pb-4 space-y-3">
-          <a href="#features" className="block text-muted-foreground text-sm py-2">
-            {t("learnMore")}
-          </a>
-          <button onClick={switchLocale} className="flex items-center gap-1.5 text-sm text-muted-foreground py-2">
-            <Globe className="w-4 h-4" />
-            {locale === "sv" ? "English" : "Svenska"}
-          </button>
-          <Link href="/login" className="block text-sm font-medium py-2">
-            {t("login")}
-          </Link>
-          <Link
-            href="/login"
-            className="block bg-primary text-primary-foreground px-4 py-2 rounded-lg text-sm font-medium text-center"
-          >
-            {t("getStarted")}
-          </Link>
+        <div className="md:hidden glass border-t border-black/[0.04] px-6 pb-6 pt-2">
+          <div className="space-y-1">
+            <a href="#features" className="block px-3 py-2.5 text-[15px] text-foreground rounded-xl hover:bg-black/[0.03] transition-colors">
+              {locale === "sv" ? "Funktioner" : "Features"}
+            </a>
+            <a href="#pricing" className="block px-3 py-2.5 text-[15px] text-foreground rounded-xl hover:bg-black/[0.03] transition-colors">
+              {locale === "sv" ? "Priser" : "Pricing"}
+            </a>
+            <button onClick={switchLocale} className="flex items-center gap-2 w-full px-3 py-2.5 text-[15px] text-muted-foreground rounded-xl hover:bg-black/[0.03] transition-colors">
+              <Globe className="w-4 h-4" />
+              {locale === "sv" ? "English" : "Svenska"}
+            </button>
+          </div>
+          <div className="mt-4 pt-4 border-t border-border space-y-2">
+            <a
+              href="https://majditounsi-spec.github.io/crm-ads/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block text-center bg-foreground text-background py-3 rounded-full text-[14px] font-medium"
+            >
+              {t("getStarted")}
+            </a>
+          </div>
         </div>
       )}
     </nav>

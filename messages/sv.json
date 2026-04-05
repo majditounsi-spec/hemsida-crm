@@ -62,26 +62,29 @@
     },
     "pricing": {
       "title": "Enkel prissättning",
-      "subtitle": "Välj den plan som passar dig",
+      "subtitle": "Starta gratis — uppgradera när du växer",
       "free": {
-        "name": "Gratis",
+        "name": "Free Trial",
         "price": "0 kr",
-        "period": "/månad",
-        "features": ["Upp till 10 kunder", "Grundläggande CRM", "1 användare", "E-postsupport"],
-        "cta": "Kom igång gratis"
+        "period": "i 7 dagar",
+        "trialNote": "Testa allt gratis i 7 dagar. Inget kort krävs.",
+        "features": ["Alla funktioner inkluderade", "Upp till 10 kunder", "1 användare", "E-postsupport"],
+        "cta": "Starta gratis provperiod"
       },
       "pro": {
         "name": "Pro",
-        "price": "499 kr",
-        "period": "/månad",
-        "features": ["Obegränsade kunder", "Google ADS-spårning", "Tidloggning", "5 användare", "Prioriterad support"],
-        "cta": "Starta Pro"
+        "price": "99",
+        "originalPrice": "149",
+        "period": "kr/mån per användare",
+        "saleNote": "Lanseringserbjudande — spara 34%",
+        "features": ["Obegränsade kunder", "Google ADS-spårning", "Tidloggning & rapporter", "Automationer", "Prioriterad support"],
+        "cta": "Starta Pro — 7 dagars fri trial"
       },
       "enterprise": {
         "name": "Enterprise",
-        "price": "Kontakta oss",
+        "price": "Custom",
         "period": "",
-        "features": ["Allt i Pro", "Obegränsade användare", "API-åtkomst", "Anpassade automationer", "Dedikerad support"],
+        "features": ["Allt i Pro", "Obegränsade användare", "API-åtkomst", "Anpassade integrationer", "Dedikerad account manager", "SLA & onboarding"],
         "cta": "Kontakta oss"
       }
     },

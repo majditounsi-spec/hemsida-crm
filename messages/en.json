@@ -62,26 +62,29 @@
     },
     "pricing": {
       "title": "Simple pricing",
-      "subtitle": "Choose the plan that fits you",
+      "subtitle": "Start free — upgrade as you grow",
       "free": {
-        "name": "Free",
+        "name": "Free Trial",
         "price": "$0",
-        "period": "/month",
-        "features": ["Up to 10 clients", "Basic CRM", "1 user", "Email support"],
-        "cta": "Get started free"
+        "period": "for 7 days",
+        "trialNote": "Try everything free for 7 days. No card required.",
+        "features": ["All features included", "Up to 10 clients", "1 user", "Email support"],
+        "cta": "Start free trial"
       },
       "pro": {
         "name": "Pro",
-        "price": "$49",
-        "period": "/month",
-        "features": ["Unlimited clients", "Google ADS tracking", "Time tracking", "5 users", "Priority support"],
-        "cta": "Start Pro"
+        "price": "9",
+        "originalPrice": "14",
+        "period": "USD/mo per user",
+        "saleNote": "Launch offer — save 34%",
+        "features": ["Unlimited clients", "Google ADS tracking", "Time tracking & reports", "Automations", "Priority support"],
+        "cta": "Start Pro — 7 day free trial"
       },
       "enterprise": {
         "name": "Enterprise",
-        "price": "Contact us",
+        "price": "Custom",
         "period": "",
-        "features": ["Everything in Pro", "Unlimited users", "API access", "Custom automations", "Dedicated support"],
+        "features": ["Everything in Pro", "Unlimited users", "API access", "Custom integrations", "Dedicated account manager", "SLA & onboarding"],
         "cta": "Contact us"
       }
     },

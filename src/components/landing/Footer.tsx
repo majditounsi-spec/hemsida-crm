@@ -6,51 +6,86 @@ export default function Footer() {
   const t = useTranslations("landing.footer");
 
   return (
-    <footer className="bg-sidebar text-sidebar-foreground py-16 px-4">
-      <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
-          <div className="md:col-span-1">
-            <div className="flex items-center gap-2 mb-4">
-              <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-sm">M</span>
+    <footer className="border-t border-border/60">
+      <div className="max-w-6xl mx-auto px-6 py-16">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-10">
+          <div className="col-span-2 md:col-span-1">
+            <div className="flex items-center gap-2.5 mb-4">
+              <div className="w-8 h-8 bg-foreground rounded-[9px] flex items-center justify-center">
+                <span className="text-background font-bold text-[13px] font-[family-name:var(--font-heading)]">
+                  M
+                </span>
               </div>
-              <span className="text-xl font-bold font-[family-name:var(--font-heading)] text-white">
+              <span className="text-[16px] font-semibold font-[family-name:var(--font-heading)] text-foreground tracking-tight">
                 {t("brand")}
               </span>
             </div>
-            <p className="text-sm text-sidebar-foreground/70 leading-relaxed">
+            <p className="text-[13px] text-muted-foreground leading-[1.6] max-w-[220px]">
               {t("tagline")}
             </p>
           </div>
 
-          <div>
-            <h4 className="text-sm font-semibold text-white mb-4">{t("product")}</h4>
-            <ul className="space-y-2 text-sm text-sidebar-foreground/70">
-              <li><a href="#features" className="hover:text-white transition-colors">Features</a></li>
-              <li><a href="#pricing" className="hover:text-white transition-colors">Pricing</a></li>
-            </ul>
-          </div>
-
-          <div>
-            <h4 className="text-sm font-semibold text-white mb-4">{t("company")}</h4>
-            <ul className="space-y-2 text-sm text-sidebar-foreground/70">
-              <li><a href="#" className="hover:text-white transition-colors">{t("about")}</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">{t("blog")}</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">{t("careers")}</a></li>
-            </ul>
-          </div>
-
-          <div>
-            <h4 className="text-sm font-semibold text-white mb-4">{t("legal")}</h4>
-            <ul className="space-y-2 text-sm text-sidebar-foreground/70">
-              <li><a href="#" className="hover:text-white transition-colors">{t("privacy")}</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">{t("terms")}</a></li>
-            </ul>
-          </div>
+          {[
+            {
+              title: t("product"),
+              links: [
+                { label: "Features", href: "#features" },
+                { label: "Pricing", href: "#pricing" },
+                { label: "CRM App", href: "https://majditounsi-spec.github.io/crm-ads/" },
+              ],
+            },
+            {
+              title: t("company"),
+              links: [
+                { label: t("about"), href: "#" },
+                { label: t("blog"), href: "#" },
+                { label: t("careers"), href: "#" },
+              ],
+            },
+            {
+              title: t("legal"),
+              links: [
+                { label: t("privacy"), href: "#" },
+                { label: t("terms"), href: "#" },
+              ],
+            },
+          ].map((section) => (
+            <div key={section.title}>
+              <h4 className="text-[12px] font-semibold text-foreground uppercase tracking-[0.1em] mb-4">
+                {section.title}
+              </h4>
+              <ul className="space-y-2.5">
+                {section.links.map((link) => (
+                  <li key={link.label}>
+                    <a
+                      href={link.href}
+                      className="text-[13px] text-muted-foreground hover:text-foreground transition-colors duration-200"
+                      {...(link.href.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                    >
+                      {link.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
         </div>
 
-        <div className="mt-12 pt-8 border-t border-white/10 text-center text-sm text-sidebar-foreground/50">
-          &copy; {new Date().getFullYear()} MarketFlow. {t("rights")}
+        <div className="mt-16 pt-8 border-t border-border/60 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <p className="text-[12px] text-muted-foreground">
+            &copy; {new Date().getFullYear()} MarketFlow. {t("rights")}
+          </p>
+          <div className="flex items-center gap-4">
+            {["Twitter", "LinkedIn", "GitHub"].map((social) => (
+              <a
+                key={social}
+                href="#"
+                className="text-[12px] text-muted-foreground hover:text-foreground transition-colors duration-200"
+              >
+                {social}
+              </a>
+            ))}
+          </div>
         </div>
       </div>
     </footer>

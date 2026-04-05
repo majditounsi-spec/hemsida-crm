@@ -23,62 +23,120 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
-  --font-heading: "Space Grotesk", sans-serif;
-  --font-body: "Inter", sans-serif;
+  --font-heading: "Space Grotesk", system-ui, sans-serif;
+  --font-body: "Inter", system-ui, sans-serif;
 }
 
 :root {
-  --background: hsl(220 20% 97%);
-  --foreground: hsl(220 30% 10%);
+  --background: hsl(0 0% 100%);
+  --foreground: hsl(0 0% 7%);
   --primary: hsl(243 75% 59%);
   --primary-foreground: hsl(0 0% 100%);
-  --secondary: hsl(220 14% 96%);
-  --secondary-foreground: hsl(220 30% 10%);
-  --muted: hsl(220 14% 96%);
-  --muted-foreground: hsl(220 10% 46%);
-  --accent: hsl(243 75% 95%);
-  --accent-foreground: hsl(243 75% 40%);
+  --secondary: hsl(240 5% 96%);
+  --secondary-foreground: hsl(0 0% 7%);
+  --muted: hsl(240 5% 96%);
+  --muted-foreground: hsl(0 0% 45%);
+  --accent: hsl(243 60% 96%);
+  --accent-foreground: hsl(243 75% 45%);
   --destructive: hsl(0 72% 51%);
-  --border: hsl(220 13% 90%);
-  --input: hsl(220 13% 90%);
+  --border: hsl(0 0% 92%);
+  --input: hsl(0 0% 92%);
   --ring: hsl(243 75% 59%);
   --card: hsl(0 0% 100%);
-  --card-foreground: hsl(220 30% 10%);
-  --sidebar-background: hsl(230 25% 12%);
-  --sidebar-foreground: hsl(220 14% 80%);
+  --card-foreground: hsl(0 0% 7%);
+  --sidebar-background: hsl(0 0% 5%);
+  --sidebar-foreground: hsl(0 0% 70%);
   --sidebar-primary: hsl(243 75% 59%);
   --sidebar-primary-foreground: hsl(0 0% 100%);
-  --sidebar-accent: hsl(230 20% 18%);
+  --sidebar-accent: hsl(0 0% 12%);
   --sidebar-accent-foreground: hsl(0 0% 100%);
-  --radius: 0.75rem;
+  --radius: 1rem;
 }
 
 .dark {
-  --background: hsl(230 25% 7%);
-  --foreground: hsl(220 14% 96%);
+  --background: hsl(0 0% 3%);
+  --foreground: hsl(0 0% 96%);
   --primary: hsl(243 75% 65%);
   --primary-foreground: hsl(0 0% 100%);
-  --secondary: hsl(230 20% 15%);
-  --secondary-foreground: hsl(220 14% 96%);
-  --muted: hsl(230 20% 15%);
-  --muted-foreground: hsl(220 10% 54%);
-  --accent: hsl(243 50% 20%);
+  --secondary: hsl(0 0% 10%);
+  --secondary-foreground: hsl(0 0% 96%);
+  --muted: hsl(0 0% 10%);
+  --muted-foreground: hsl(0 0% 55%);
+  --accent: hsl(243 40% 15%);
   --accent-foreground: hsl(243 75% 80%);
   --destructive: hsl(0 72% 51%);
-  --border: hsl(230 20% 18%);
-  --input: hsl(230 20% 18%);
+  --border: hsl(0 0% 14%);
+  --input: hsl(0 0% 14%);
   --ring: hsl(243 75% 65%);
-  --card: hsl(230 25% 10%);
-  --card-foreground: hsl(220 14% 96%);
-  --sidebar-background: hsl(230 30% 8%);
-  --sidebar-foreground: hsl(220 14% 70%);
-  --sidebar-accent: hsl(230 25% 14%);
+  --card: hsl(0 0% 6%);
+  --card-foreground: hsl(0 0% 96%);
+  --sidebar-background: hsl(0 0% 3%);
+  --sidebar-foreground: hsl(0 0% 60%);
+  --sidebar-accent: hsl(0 0% 10%);
+}
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   font-family: var(--font-body);
+  letter-spacing: -0.011em;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
+  letter-spacing: -0.03em;
+}
+
+/* Apple-style glass effect */
+.glass {
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+}
+
+/* Subtle grain texture overlay */
+.grain::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Smooth gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, hsl(243 75% 59%) 0%, hsl(280 80% 55%) 50%, hsl(330 75% 55%) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Glow effect */
+.glow {
+  box-shadow:
+    0 0 0 1px rgba(124, 95, 255, 0.08),
+    0 1px 2px rgba(0, 0, 0, 0.04),
+    0 4px 12px rgba(124, 95, 255, 0.08);
+}
+
+.glow-lg {
+  box-shadow:
+    0 0 0 1px rgba(124, 95, 255, 0.06),
+    0 2px 4px rgba(0, 0, 0, 0.02),
+    0 8px 24px rgba(124, 95, 255, 0.12),
+    0 24px 48px rgba(124, 95, 255, 0.08);
+}
+
+/* Selection */
+::selection {
+  background: hsl(243 75% 59% / 0.15);
 }
