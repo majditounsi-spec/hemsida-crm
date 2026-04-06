@@ -26,9 +26,9 @@
   },
   "landing": {
     "hero": {
-      "title": "Manage clients, projects & ads",
-      "titleHighlight": "in one place",
-      "description": "MarketFlow is the CRM platform built for digital agencies. Track leads, manage projects, monitor ad budgets, and log time — all in one modern interface.",
+      "title": "Clients, projects, sales & finance",
+      "titleHighlight": "in one system",
+      "description": "MarketFlow brings client management, project tracking, sales pipeline, ad budgets, time logging, and invoicing into one platform — built for digital agencies that want to grow without the admin chaos.",
       "cta": "Start free",
       "ctaSecondary": "See demo"
     },

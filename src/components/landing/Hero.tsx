@@ -35,8 +35,25 @@ export default function Hero() {
             {t("description")}
           </p>
 
+          {/* Value props */}
+          <div className="mt-10 flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
+            {[
+              "Kundhantering",
+              "Projektledning",
+              "Säljpipeline",
+              "Google & Meta Ads",
+              "Tidloggning",
+              "Fakturering",
+            ].map((item) => (
+              <span key={item} className="flex items-center gap-2 text-[13px] text-muted-foreground">
+                <span className="w-1 h-1 rounded-full bg-primary/50" />
+                {item}
+              </span>
+            ))}
+          </div>
+
           {/* CTAs */}
-          <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4">
+          <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
             <motion.a
               href="https://majditounsi-spec.github.io/crm-ads/"
               target="_blank"

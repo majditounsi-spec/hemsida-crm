@@ -26,9 +26,9 @@
   },
   "landing": {
     "hero": {
-      "title": "Hantera kunder, projekt & annonser",
-      "titleHighlight": "på ett ställe",
-      "description": "MarketFlow är CRM-plattformen byggd för digitala byråer. Spåra leads, hantera projekt, övervaka annonsbudgetar och logga tid — allt i ett modernt gränssnitt.",
+      "title": "Kunder, projekt, sälj & ekonomi",
+      "titleHighlight": "i ett system",
+      "description": "MarketFlow samlar kundhantering, projektledning, säljpipeline, annonsbudgetar, tidloggning och fakturering i en plattform — byggd för digitala byråer som vill växa utan admin-kaos.",
       "cta": "Starta gratis",
       "ctaSecondary": "Se demo"
     },
