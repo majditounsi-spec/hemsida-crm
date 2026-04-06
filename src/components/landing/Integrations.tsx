@@ -2,20 +2,34 @@
 
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import {
+  GoogleIcon,
+  GoogleAdsIcon,
+  MetaIcon,
+  FortnoxIcon,
+  GetAcceptIcon,
+  SlackIcon,
+  AnalyticsIcon,
+  ZapierIcon,
+  MicrosoftIcon,
+  StripeIcon,
+  HubSpotIcon,
+  ApiIcon,
+} from "./BrandIcons";
 
 const integrations = [
-  { name: "Google Workspace", description: "Gmail, Calendar, Drive & Sheets synkat i CRM:et.", category: "Produktivitet", status: "live" as const },
-  { name: "Google Ads", description: "Kampanjer, budgetar, klick och konverteringar i realtid.", category: "Annonsering", status: "live" as const },
-  { name: "Meta Ads", description: "Facebook & Instagram — räckvidd, engagemang och ROAS.", category: "Annonsering", status: "live" as const },
-  { name: "Fortnox", description: "Fakturering, bokföring och ekonomirapporter automatiserat.", category: "Ekonomi", status: "coming" as const },
-  { name: "GetAccept", description: "Digitala avtal och e-signering direkt från CRM:et.", category: "Försäljning", status: "coming" as const },
-  { name: "Slack", description: "Notifieringar och uppdateringar direkt i era kanaler.", category: "Kommunikation", status: "coming" as const },
-  { name: "Google Analytics", description: "Trafik och konverteringar kopplat till varje kund.", category: "Analys", status: "coming" as const },
-  { name: "Zapier", description: "Koppla till 6 000+ appar utan kod.", category: "Automation", status: "coming" as const },
-  { name: "Microsoft 365", description: "Outlook, Teams & OneDrive integrerat.", category: "Produktivitet", status: "coming" as const },
-  { name: "Stripe", description: "Betalningar och prenumerationer från kundkortet.", category: "Betalning", status: "coming" as const },
-  { name: "HubSpot", description: "Synka kontakter, deals och marketing-data.", category: "CRM", status: "coming" as const },
-  { name: "REST API", description: "Öppet API med webhooks för egna integrationer.", category: "Utvecklare", status: "coming" as const },
+  { name: "Google Workspace", description: "Gmail, Calendar, Drive & Sheets synkat i CRM:et.", category: "Produktivitet", status: "live" as const, icon: GoogleIcon },
+  { name: "Google Ads", description: "Kampanjer, budgetar, klick och konverteringar i realtid.", category: "Annonsering", status: "live" as const, icon: GoogleAdsIcon },
+  { name: "Meta Ads", description: "Facebook & Instagram — räckvidd, engagemang och ROAS.", category: "Annonsering", status: "live" as const, icon: MetaIcon },
+  { name: "Fortnox", description: "Fakturering, bokföring och ekonomirapporter automatiserat.", category: "Ekonomi", status: "coming" as const, icon: FortnoxIcon },
+  { name: "GetAccept", description: "Digitala avtal och e-signering direkt från CRM:et.", category: "Försäljning", status: "coming" as const, icon: GetAcceptIcon },
+  { name: "Slack", description: "Notifieringar och uppdateringar direkt i era kanaler.", category: "Kommunikation", status: "coming" as const, icon: SlackIcon },
+  { name: "Google Analytics", description: "Trafik och konverteringar kopplat till varje kund.", category: "Analys", status: "coming" as const, icon: AnalyticsIcon },
+  { name: "Zapier", description: "Koppla till 6 000+ appar utan kod.", category: "Automation", status: "coming" as const, icon: ZapierIcon },
+  { name: "Microsoft 365", description: "Outlook, Teams & OneDrive integrerat.", category: "Produktivitet", status: "coming" as const, icon: MicrosoftIcon },
+  { name: "Stripe", description: "Betalningar och prenumerationer från kundkortet.", category: "Betalning", status: "coming" as const, icon: StripeIcon },
+  { name: "HubSpot", description: "Synka kontakter, deals och marketing-data.", category: "CRM", status: "coming" as const, icon: HubSpotIcon },
+  { name: "REST API", description: "Öppet API med webhooks för egna integrationer.", category: "Utvecklare", status: "coming" as const, icon: ApiIcon },
 ];
 
 export default function Integrations() {
@@ -61,8 +75,8 @@ export default function Integrations() {
                 className="bg-card p-7 hover:bg-white/[0.03] transition-all duration-500 group"
               >
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="w-10 h-10 rounded-[11px] bg-primary/10 border border-primary/20 flex items-center justify-center text-[13px] font-bold text-primary/70 shadow-[0_0_16px_rgba(124,95,255,0.1)]">
-                    {item.name.charAt(0)}
+                  <div className="w-11 h-11 rounded-[12px] bg-white/[0.06] border border-white/[0.08] flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                    <item.icon className="w-6 h-6" />
                   </div>
                   <div>
                     <h3 className="text-[15px] font-semibold text-foreground/90 font-[family-name:var(--font-heading)]">{item.name}</h3>
@@ -88,10 +102,10 @@ export default function Integrations() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.04 }}
-                className="flex items-center gap-4 p-4 rounded-2xl border border-white/[0.04] bg-white/[0.01] hover:bg-white/[0.03] hover:border-white/[0.08] transition-all duration-300"
+                className="flex items-center gap-4 p-4 rounded-2xl border border-white/[0.04] bg-white/[0.01] hover:bg-white/[0.03] hover:border-white/[0.08] transition-all duration-300 group"
               >
-                <div className="w-9 h-9 rounded-[10px] bg-white/[0.03] border border-white/[0.06] flex items-center justify-center text-[12px] font-bold text-white/20 shrink-0">
-                  {item.name.charAt(0)}
+                <div className="w-10 h-10 rounded-[11px] bg-white/[0.03] border border-white/[0.06] flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform duration-300">
+                  <item.icon className="w-5 h-5" />
                 </div>
                 <div className="min-w-0">
                   <h3 className="text-[13px] font-semibold text-foreground/70 font-[family-name:var(--font-heading)]">{item.name}</h3>
