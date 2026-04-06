@@ -29,15 +29,15 @@ export default function Navbar() {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
-          ? "glass border-b border-black/[0.04] shadow-[0_1px_3px_rgba(0,0,0,0.04)]"
+          ? "glass border-b border-white/[0.06]"
           : "bg-transparent"
       }`}
     >
       <div className="max-w-6xl mx-auto px-6">
         <div className="flex items-center justify-between h-[72px]">
           <Link href="/" className="flex items-center gap-2.5 group">
-            <div className="w-9 h-9 bg-foreground rounded-[10px] flex items-center justify-center transition-transform duration-300 group-hover:scale-105">
-              <span className="text-background font-bold text-[15px] font-[family-name:var(--font-heading)]">
+            <div className="w-9 h-9 bg-primary rounded-[10px] flex items-center justify-center transition-transform duration-300 group-hover:scale-105 shadow-[0_0_20px_rgba(124,95,255,0.3)]">
+              <span className="text-white font-bold text-[15px] font-[family-name:var(--font-heading)]">
                 M
               </span>
             </div>
@@ -49,6 +49,7 @@ export default function Navbar() {
           <div className="hidden md:flex items-center gap-1">
             {[
               { href: "#features", label: locale === "sv" ? "Funktioner" : "Features" },
+              { href: "#integrations", label: locale === "sv" ? "Integrationer" : "Integrations" },
               { href: "#pricing", label: locale === "sv" ? "Priser" : "Pricing" },
             ].map((item) => (
               <a
@@ -82,7 +83,7 @@ export default function Navbar() {
               href="https://majditounsi-spec.github.io/crm-ads/"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-foreground text-background px-5 py-2.5 rounded-full text-[13px] font-medium hover:bg-foreground/90 transition-all duration-200"
+              className="bg-primary text-white px-5 py-2.5 rounded-full text-[13px] font-medium hover:bg-primary/90 transition-all duration-200 shadow-[0_0_20px_rgba(124,95,255,0.25)]"
             >
               {t("getStarted")}
             </a>
@@ -98,25 +99,24 @@ export default function Navbar() {
       </div>
 
       {mobileOpen && (
-        <div className="md:hidden glass border-t border-black/[0.04] px-6 pb-6 pt-2">
+        <div className="md:hidden glass border-t border-white/[0.06] px-6 pb-6 pt-2">
           <div className="space-y-1">
-            <a href="#features" className="block px-3 py-2.5 text-[15px] text-foreground rounded-xl hover:bg-black/[0.03] transition-colors">
-              {locale === "sv" ? "Funktioner" : "Features"}
-            </a>
-            <a href="#pricing" className="block px-3 py-2.5 text-[15px] text-foreground rounded-xl hover:bg-black/[0.03] transition-colors">
-              {locale === "sv" ? "Priser" : "Pricing"}
-            </a>
-            <button onClick={switchLocale} className="flex items-center gap-2 w-full px-3 py-2.5 text-[15px] text-muted-foreground rounded-xl hover:bg-black/[0.03] transition-colors">
+            {["features", "integrations", "pricing"].map((section) => (
+              <a key={section} href={`#${section}`} className="block px-3 py-2.5 text-[15px] text-foreground/70 rounded-xl hover:bg-white/[0.05] transition-colors capitalize">
+                {section}
+              </a>
+            ))}
+            <button onClick={switchLocale} className="flex items-center gap-2 w-full px-3 py-2.5 text-[15px] text-muted-foreground rounded-xl hover:bg-white/[0.05] transition-colors">
               <Globe className="w-4 h-4" />
               {locale === "sv" ? "English" : "Svenska"}
             </button>
           </div>
-          <div className="mt-4 pt-4 border-t border-border space-y-2">
+          <div className="mt-4 pt-4 border-t border-white/[0.06]">
             <a
               href="https://majditounsi-spec.github.io/crm-ads/"
               target="_blank"
               rel="noopener noreferrer"
-              className="block text-center bg-foreground text-background py-3 rounded-full text-[14px] font-medium"
+              className="block text-center bg-primary text-white py-3 rounded-full text-[14px] font-medium shadow-[0_0_20px_rgba(124,95,255,0.25)]"
             >
               {t("getStarted")}
             </a>

@@ -117,11 +117,11 @@ export default function ChatBot() {
             exit={{ scale: 0, opacity: 0 }}
             transition={{ type: "spring", stiffness: 260, damping: 20 }}
             onClick={() => setOpen(true)}
-            className="fixed bottom-6 right-6 z-50 w-14 h-14 bg-foreground text-background rounded-full flex items-center justify-center shadow-[0_4px_24px_rgba(0,0,0,0.2)] hover:scale-105 transition-transform duration-200"
+            className="fixed bottom-6 right-6 z-50 w-14 h-14 bg-primary text-white rounded-full flex items-center justify-center shadow-[0_0_30px_rgba(124,95,255,0.35)] hover:scale-105 transition-transform duration-200"
           >
             <MessageCircle className="w-6 h-6" />
             {/* Notification dot */}
-            <span className="absolute -top-0.5 -right-0.5 w-4 h-4 bg-primary rounded-full border-2 border-background flex items-center justify-center">
+            <span className="absolute -top-0.5 -right-0.5 w-4 h-4 bg-emerald-500 rounded-full border-2 border-background flex items-center justify-center shadow-[0_0_8px_rgba(16,185,129,0.4)]">
               <span className="text-[8px] font-bold text-white">1</span>
             </span>
           </motion.button>
@@ -136,20 +136,20 @@ export default function ChatBot() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
             transition={{ duration: 0.3, ease: [0.25, 0.4, 0.25, 1] }}
-            className="fixed bottom-6 right-6 z-50 w-[380px] max-w-[calc(100vw-48px)] h-[560px] max-h-[calc(100vh-120px)] bg-card border border-border/60 rounded-[20px] shadow-[0_8px_40px_rgba(0,0,0,0.12)] flex flex-col overflow-hidden"
+            className="fixed bottom-6 right-6 z-50 w-[380px] max-w-[calc(100vw-48px)] h-[560px] max-h-[calc(100vh-120px)] bg-card border border-white/[0.08] rounded-[20px] shadow-[0_8px_40px_rgba(0,0,0,0.4),0_0_60px_rgba(124,95,255,0.08)] flex flex-col overflow-hidden"
           >
             {/* Header */}
-            <div className="flex items-center justify-between px-5 py-4 border-b border-border/60 bg-secondary/30">
+            <div className="flex items-center justify-between px-5 py-4 border-b border-white/[0.06] bg-white/[0.02]">
               <div className="flex items-center gap-3">
-                <div className="w-9 h-9 bg-foreground rounded-[10px] flex items-center justify-center">
-                  <Sparkles className="w-4 h-4 text-background" />
+                <div className="w-9 h-9 bg-primary/20 border border-primary/30 rounded-[10px] flex items-center justify-center shadow-[0_0_12px_rgba(124,95,255,0.15)]">
+                  <Sparkles className="w-4 h-4 text-primary" />
                 </div>
                 <div>
                   <h4 className="text-[14px] font-semibold text-foreground font-[family-name:var(--font-heading)]">
                     MarketFlow AI
                   </h4>
                   <div className="flex items-center gap-1.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 shadow-[0_0_6px_rgba(16,185,129,0.5)]" />
                     <span className="text-[11px] text-muted-foreground">Online nu</span>
                   </div>
                 </div>
@@ -188,8 +188,8 @@ export default function ChatBot() {
                   <div
                     className={`max-w-[75%] px-4 py-2.5 rounded-2xl ${
                       msg.role === "bot"
-                        ? "bg-secondary/80 text-foreground rounded-tl-md"
-                        : "bg-foreground text-background rounded-tr-md"
+                        ? "bg-white/[0.04] text-foreground/80 rounded-tl-md border border-white/[0.06]"
+                        : "bg-primary/20 text-foreground/90 rounded-tr-md border border-primary/20"
                     }`}
                   >
                     <p className="text-[13px] leading-[1.6]">{msg.text}</p>
@@ -242,7 +242,7 @@ export default function ChatBot() {
                   <button
                     key={reply}
                     onClick={() => sendMessage(reply)}
-                    className="text-[11px] px-3 py-1.5 rounded-full bg-secondary/80 border border-border/40 text-muted-foreground hover:bg-secondary hover:text-foreground transition-colors duration-200"
+                    className="text-[11px] px-3 py-1.5 rounded-full bg-white/[0.03] border border-white/[0.06] text-white/40 hover:bg-white/[0.06] hover:text-white/60 transition-colors duration-200"
                   >
                     {reply}
                   </button>
@@ -251,7 +251,7 @@ export default function ChatBot() {
             )}
 
             {/* Input */}
-            <div className="px-4 py-3 border-t border-border/60 bg-secondary/20">
+            <div className="px-4 py-3 border-t border-white/[0.06] bg-white/[0.01]">
               <form
                 onSubmit={(e) => {
                   e.preventDefault();
@@ -265,12 +265,12 @@ export default function ChatBot() {
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
                   placeholder="Skriv ett meddelande..."
-                  className="flex-1 bg-background border border-border/60 rounded-full px-4 py-2.5 text-[13px] text-foreground placeholder:text-muted-foreground/60 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary/30"
+                  className="flex-1 bg-white/[0.03] border border-white/[0.08] rounded-full px-4 py-2.5 text-[13px] text-foreground placeholder:text-white/20 focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary/30"
                 />
                 <button
                   type="submit"
                   disabled={!input.trim()}
-                  className="w-10 h-10 bg-foreground text-background rounded-full flex items-center justify-center hover:bg-foreground/90 transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
+                  className="w-10 h-10 bg-primary text-white rounded-full flex items-center justify-center hover:bg-primary/90 transition-colors disabled:opacity-20 disabled:cursor-not-allowed shadow-[0_0_16px_rgba(124,95,255,0.2)]"
                 >
                   <Send className="w-4 h-4" />
                 </button>
