@@ -149,44 +149,87 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Light mode override */
 .light-mode {
-  --background: hsl(0 0% 100%);
-  --foreground: hsl(0 0% 7%);
-  --primary: hsl(243 75% 59%);
+  --background: hsl(220 20% 97%);
+  --foreground: hsl(220 30% 10%);
+  --primary: hsl(243 75% 55%);
   --primary-foreground: hsl(0 0% 100%);
-  --secondary: hsl(240 5% 96%);
-  --secondary-foreground: hsl(0 0% 7%);
-  --muted: hsl(240 5% 96%);
-  --muted-foreground: hsl(0 0% 45%);
-  --accent: hsl(243 60% 96%);
-  --accent-foreground: hsl(243 75% 45%);
-  --border: hsl(0 0% 90%);
-  --input: hsl(0 0% 90%);
-  --ring: hsl(243 75% 59%);
+  --secondary: hsl(220 16% 93%);
+  --secondary-foreground: hsl(220 30% 10%);
+  --muted: hsl(220 14% 92%);
+  --muted-foreground: hsl(220 10% 40%);
+  --accent: hsl(243 50% 93%);
+  --accent-foreground: hsl(243 75% 40%);
+  --border: hsl(220 14% 85%);
+  --input: hsl(220 14% 85%);
+  --ring: hsl(243 75% 55%);
   --card: hsl(0 0% 100%);
-  --card-foreground: hsl(0 0% 7%);
-  --sidebar-background: hsl(0 0% 5%);
-  --sidebar-foreground: hsl(0 0% 50%);
+  --card-foreground: hsl(220 30% 10%);
+  --sidebar-background: hsl(220 25% 12%);
+  --sidebar-foreground: hsl(220 14% 50%);
 }
 
 .light-mode .glass {
-  background: rgba(255, 255, 255, 0.72);
+  background: rgba(255, 255, 255, 0.8);
   backdrop-filter: saturate(180%) blur(20px);
   -webkit-backdrop-filter: saturate(180%) blur(20px);
 }
 
+/* Light mode — override white/[] opacity classes to use black */
+.light-mode [class*="bg-white/["] {
+  --tw-bg-opacity: 1;
+}
+.light-mode .bg-white\/\[0\.02\] { background-color: hsl(220 16% 95%); }
+.light-mode .bg-white\/\[0\.03\] { background-color: hsl(220 16% 93%); }
+.light-mode .bg-white\/\[0\.04\] { background-color: hsl(220 16% 91%); }
+.light-mode .bg-white\/\[0\.06\] { background-color: hsl(220 16% 89%); }
+.light-mode .hover\:bg-white\/\[0\.03\]:hover { background-color: hsl(220 16% 93%); }
+.light-mode .hover\:bg-white\/\[0\.04\]:hover { background-color: hsl(220 16% 91%); }
+.light-mode .hover\:bg-white\/\[0\.06\]:hover { background-color: hsl(220 14% 88%); }
+.light-mode .hover\:bg-white\/\[0\.1\]:hover { background-color: hsl(220 14% 86%); }
+
+/* Light mode borders */
+.light-mode .border-white\/\[0\.04\] { border-color: hsl(220 14% 88%); }
+.light-mode .border-white\/\[0\.06\] { border-color: hsl(220 14% 85%); }
+.light-mode .border-white\/\[0\.08\] { border-color: hsl(220 14% 82%); }
+.light-mode .border-white\/\[0\.1\] { border-color: hsl(220 14% 80%); }
+.light-mode .hover\:border-white\/\[0\.08\]:hover { border-color: hsl(220 14% 80%); }
+.light-mode .hover\:border-white\/\[0\.1\]:hover { border-color: hsl(220 14% 78%); }
+
+/* Light mode text */
+.light-mode .text-white\/90, .light-mode .text-white\/80 { color: hsl(220 30% 12%); }
+.light-mode .text-white\/70, .light-mode .text-white\/60 { color: hsl(220 20% 25%); }
+.light-mode .text-white\/50, .light-mode .text-white\/40 { color: hsl(220 12% 40%); }
+.light-mode .text-white\/30, .light-mode .text-white\/25 { color: hsl(220 10% 52%); }
+.light-mode .text-white\/20, .light-mode .text-white\/15 { color: hsl(220 8% 62%); }
+.light-mode .text-white\/10 { color: hsl(220 6% 72%); }
+
+/* Light mode grid */
 .light-mode .grid-bg {
   background-image:
-    linear-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+    linear-gradient(rgba(0, 0, 0, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.04) 1px, transparent 1px);
   background-size: 64px 64px;
 }
 
-.light-mode ::-webkit-scrollbar-thumb {
-  background: hsl(0 0% 82%);
+/* Light mode glow */
+.light-mode .glow-lg {
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.06),
+    0 4px 16px rgba(0, 0, 0, 0.08),
+    0 16px 48px rgba(124, 95, 255, 0.08);
 }
 
+/* Light mode scrollbar */
+.light-mode ::-webkit-scrollbar-thumb {
+  background: hsl(220 14% 80%);
+}
 .light-mode ::-webkit-scrollbar-thumb:hover {
-  background: hsl(0 0% 70%);
+  background: hsl(220 14% 68%);
+}
+
+/* Light mode selection */
+.light-mode ::selection {
+  background: hsl(243 75% 55% / 0.15);
 }
 
 /* Selection */
