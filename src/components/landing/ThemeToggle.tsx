@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { Sun, Moon } from "lucide-react";
 
 export default function ThemeToggle() {
@@ -16,36 +16,44 @@ export default function ThemeToggle() {
   }, [dark]);
 
   return (
-    <motion.button
+    <button
       onClick={() => setDark(!dark)}
-      className="fixed bottom-6 left-6 z-50 w-12 h-12 rounded-full bg-white/[0.06] border border-white/[0.08] backdrop-blur-xl flex items-center justify-center hover:bg-white/[0.1] transition-all duration-300 group"
-      whileHover={{ scale: 1.1 }}
-      whileTap={{ scale: 0.9 }}
+      className="fixed bottom-6 left-6 z-50 w-[62px] h-[32px] rounded-full p-[3px] transition-colors duration-500 focus:outline-none"
+      style={{
+        background: dark
+          ? "linear-gradient(135deg, hsl(240 6% 20%), hsl(240 6% 14%))"
+          : "linear-gradient(135deg, hsl(210 80% 80%), hsl(210 60% 70%))",
+        boxShadow: dark
+          ? "0 1px 3px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.05)"
+          : "0 1px 3px rgba(0,0,0,0.1), inset 0 1px 0 rgba(255,255,255,0.3)",
+      }}
       title={dark ? "Ljust tema" : "Mörkt tema"}
     >
-      <AnimatePresence mode="wait">
+      <motion.div
+        className="w-[26px] h-[26px] rounded-full flex items-center justify-center"
+        animate={{
+          x: dark ? 0 : 30,
+        }}
+        transition={{
+          type: "spring",
+          stiffness: 500,
+          damping: 30,
+        }}
+        style={{
+          background: dark
+            ? "linear-gradient(145deg, hsl(240 6% 30%), hsl(240 6% 22%))"
+            : "linear-gradient(145deg, #fff, #f0f0f0)",
+          boxShadow: dark
+            ? "0 2px 6px rgba(0,0,0,0.4), 0 0 0 0.5px rgba(255,255,255,0.08)"
+            : "0 2px 6px rgba(0,0,0,0.15), 0 0 0 0.5px rgba(0,0,0,0.04)",
+        }}
+      >
         {dark ? (
-          <motion.div
-            key="sun"
-            initial={{ rotate: -90, opacity: 0 }}
-            animate={{ rotate: 0, opacity: 1 }}
-            exit={{ rotate: 90, opacity: 0 }}
-            transition={{ duration: 0.3 }}
-          >
-            <Sun className="w-[18px] h-[18px] text-yellow-400/70 group-hover:text-yellow-400 transition-colors" />
-          </motion.div>
+          <Moon className="w-[13px] h-[13px] text-white/50" />
         ) : (
-          <motion.div
-            key="moon"
-            initial={{ rotate: 90, opacity: 0 }}
-            animate={{ rotate: 0, opacity: 1 }}
-            exit={{ rotate: -90, opacity: 0 }}
-            transition={{ duration: 0.3 }}
-          >
-            <Moon className="w-[18px] h-[18px] text-primary/70 group-hover:text-primary transition-colors" />
-          </motion.div>
+          <Sun className="w-[13px] h-[13px] text-amber-500" />
         )}
-      </AnimatePresence>
-    </motion.button>
+      </motion.div>
+    </button>
   );
 }

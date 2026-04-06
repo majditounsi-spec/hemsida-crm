@@ -3,6 +3,7 @@ import Hero from "@/components/landing/Hero";
 import Features from "@/components/landing/Features";
 import Integrations from "@/components/landing/Integrations";
 import SocialProof from "@/components/landing/SocialProof";
+import AutomationDemo from "@/components/landing/AutomationDemo";
 import Pricing from "@/components/landing/Pricing";
 import Footer from "@/components/landing/Footer";
 import ChatBot from "@/components/landing/ChatBot";
@@ -16,6 +17,7 @@ export default function LandingPage() {
         <Hero />
         <Features />
         <Integrations />
+        <AutomationDemo />
         <SocialProof />
         <Pricing />
       </main>
