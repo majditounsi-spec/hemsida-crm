@@ -23,19 +23,6 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: [0.25, 0.4, 0.25, 1] }}
         >
-          {/* Badge */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-primary/20 bg-primary/[0.08] mb-8"
-          >
-            <span className="w-1.5 h-1.5 rounded-full bg-primary shadow-[0_0_8px_rgba(124,95,255,0.6)] animate-pulse" />
-            <span className="text-[13px] font-medium text-primary/90">
-              Nu i beta — testa gratis
-            </span>
-          </motion.div>
-
           {/* Headline */}
           <h1 className="text-[clamp(2.5rem,6vw,5rem)] leading-[1.05] font-bold font-[family-name:var(--font-heading)] text-foreground max-w-4xl mx-auto">
             {t("title")}
