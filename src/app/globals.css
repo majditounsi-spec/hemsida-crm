@@ -147,6 +147,48 @@ h1, h2, h3, h4, h5, h6 {
   );
 }
 
+/* Light mode override */
+.light-mode {
+  --background: hsl(0 0% 100%);
+  --foreground: hsl(0 0% 7%);
+  --primary: hsl(243 75% 59%);
+  --primary-foreground: hsl(0 0% 100%);
+  --secondary: hsl(240 5% 96%);
+  --secondary-foreground: hsl(0 0% 7%);
+  --muted: hsl(240 5% 96%);
+  --muted-foreground: hsl(0 0% 45%);
+  --accent: hsl(243 60% 96%);
+  --accent-foreground: hsl(243 75% 45%);
+  --border: hsl(0 0% 90%);
+  --input: hsl(0 0% 90%);
+  --ring: hsl(243 75% 59%);
+  --card: hsl(0 0% 100%);
+  --card-foreground: hsl(0 0% 7%);
+  --sidebar-background: hsl(0 0% 5%);
+  --sidebar-foreground: hsl(0 0% 50%);
+}
+
+.light-mode .glass {
+  background: rgba(255, 255, 255, 0.72);
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+}
+
+.light-mode .grid-bg {
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+  background-size: 64px 64px;
+}
+
+.light-mode ::-webkit-scrollbar-thumb {
+  background: hsl(0 0% 82%);
+}
+
+.light-mode ::-webkit-scrollbar-thumb:hover {
+  background: hsl(0 0% 70%);
+}
+
 /* Selection */
 ::selection {
   background: hsl(243 75% 59% / 0.25);
