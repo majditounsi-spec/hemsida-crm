@@ -48,7 +48,7 @@ export default function Integrations() {
           transition={{ duration: 0.7 }}
           className="text-center mb-20"
         >
-          <p className="text-[13px] font-semibold text-primary/70 uppercase tracking-[0.15em] mb-4">
+          <p className="text-[13px] font-semibold text-white/30 uppercase tracking-[0.15em] mb-4">
             Integrationer
           </p>
           <h2 className="text-[clamp(2rem,4vw,3.5rem)] font-bold font-[family-name:var(--font-heading)] text-foreground leading-[1.1]">
@@ -60,8 +60,8 @@ export default function Integrations() {
 
         {/* Live */}
         <div className="mb-16">
-          <p className="text-[11px] font-semibold text-primary/40 uppercase tracking-[0.2em] mb-5 pl-1 flex items-center gap-2">
-            <span className="w-1.5 h-1.5 rounded-full bg-primary/50 shadow-[0_0_6px_rgba(124,95,255,0.4)]" />
+          <p className="text-[11px] font-semibold text-white/25 uppercase tracking-[0.2em] mb-5 pl-1 flex items-center gap-2">
+            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400/50" />
             Tillgängliga nu
           </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-[1px] bg-white/[0.04] rounded-[20px] overflow-hidden">
@@ -75,7 +75,7 @@ export default function Integrations() {
                 className="bg-card p-7 hover:bg-white/[0.03] transition-all duration-500 group"
               >
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="w-11 h-11 rounded-[12px] bg-white/[0.06] border border-white/[0.08] flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                  <div className="w-11 h-11 rounded-[12px] bg-white/[0.04] border border-white/[0.06] flex items-center justify-center group-hover:scale-110 group-hover:bg-white/[0.08] transition-all duration-300">
                     <item.icon className="w-6 h-6" />
                   </div>
                   <div>
@@ -127,7 +127,7 @@ export default function Integrations() {
             href="https://majditounsi-spec.github.io/crm-ads/"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 bg-primary text-white px-7 py-3.5 rounded-full text-[14px] font-medium hover:bg-primary/90 transition-all shadow-[0_0_24px_rgba(124,95,255,0.25)]"
+            className="inline-flex items-center gap-2 bg-gradient-to-b from-white/15 to-white/5 text-white/90 border border-white/10 px-7 py-3.5 rounded-full text-[14px] font-medium hover:from-white/20 hover:to-white/10 transition-all"
           >
             Testa MarketFlow
             <ArrowRight className="w-4 h-4" />

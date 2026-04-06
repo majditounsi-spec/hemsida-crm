@@ -28,7 +28,7 @@ export default function Features() {
           transition={{ duration: 0.7, ease: [0.25, 0.4, 0.25, 1] }}
           className="text-center mb-20"
         >
-          <p className="text-[13px] font-semibold text-primary/70 uppercase tracking-[0.15em] mb-4">
+          <p className="text-[13px] font-semibold text-white/30 uppercase tracking-[0.15em] mb-4">
             {t("subtitle")}
           </p>
           <h2 className="text-[clamp(2rem,4vw,3.5rem)] font-bold font-[family-name:var(--font-heading)] text-foreground leading-[1.1]">
@@ -46,8 +46,8 @@ export default function Features() {
               transition={{ delay: i * 0.06, duration: 0.5 }}
               className="bg-card p-8 hover:bg-white/[0.03] transition-all duration-500 group shimmer"
             >
-              <div className="w-10 h-10 rounded-[11px] bg-white/[0.04] border border-white/[0.06] flex items-center justify-center mb-5 group-hover:bg-primary/10 group-hover:border-primary/20 group-hover:shadow-[0_0_20px_rgba(124,95,255,0.1)] transition-all duration-500">
-                <feature.icon className="w-[18px] h-[18px] text-white/40 group-hover:text-primary/70 transition-colors duration-500" />
+              <div className="w-10 h-10 rounded-[11px] bg-white/[0.04] border border-white/[0.06] flex items-center justify-center mb-5 group-hover:bg-white/[0.08] group-hover:border-white/[0.12] transition-all duration-500">
+                <feature.icon className="w-[18px] h-[18px] text-white/30 group-hover:text-white/60 transition-colors duration-500" />
               </div>
 
               <h3 className="text-[16px] font-semibold font-[family-name:var(--font-heading)] text-foreground/90 mb-2 flex items-center gap-1.5">

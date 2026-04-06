@@ -12,10 +12,10 @@ export default function Hero() {
       {/* Grid background */}
       <div className="absolute inset-0 grid-bg" />
 
-      {/* Ambient orbs */}
-      <div className="absolute top-20 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-primary/[0.08] rounded-full blur-[120px]" />
-      <div className="absolute top-60 -left-40 w-[500px] h-[500px] bg-purple-500/[0.04] rounded-full blur-[100px]" />
-      <div className="absolute top-40 -right-40 w-[500px] h-[500px] bg-blue-500/[0.04] rounded-full blur-[100px]" />
+      {/* Ambient orbs — silver/graphite */}
+      <div className="absolute top-20 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-white/[0.03] rounded-full blur-[120px]" />
+      <div className="absolute top-60 -left-40 w-[500px] h-[500px] bg-white/[0.015] rounded-full blur-[100px]" />
+      <div className="absolute top-40 -right-40 w-[500px] h-[500px] bg-white/[0.015] rounded-full blur-[100px]" />
 
       <div className="relative max-w-5xl mx-auto text-center">
         <motion.div
@@ -60,7 +60,7 @@ export default function Hero() {
               rel="noopener noreferrer"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
-              className="relative bg-primary text-white px-8 py-4 rounded-full text-[15px] font-semibold hover:bg-primary/90 transition-all duration-200 flex items-center gap-2.5 shadow-[0_0_30px_rgba(124,95,255,0.35)]"
+              className="relative bg-gradient-to-b from-white/20 to-white/5 text-white border border-white/15 px-8 py-4 rounded-full text-[15px] font-semibold hover:from-white/25 hover:to-white/10 transition-all duration-200 flex items-center gap-2.5 shadow-[0_2px_20px_rgba(255,255,255,0.06)]"
             >
               {t("cta")}
               <ArrowRight className="w-4 h-4" />
@@ -69,7 +69,7 @@ export default function Hero() {
               href="#features"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
-              className="flex items-center gap-2.5 px-8 py-4 rounded-full text-[15px] font-medium text-foreground/80 border border-white/10 hover:bg-white/[0.04] transition-colors duration-200"
+              className="flex items-center gap-2.5 px-8 py-4 rounded-full text-[15px] font-medium text-white/50 border border-white/[0.08] hover:text-white/70 hover:border-white/15 transition-all duration-200"
             >
               <Play className="w-4 h-4 fill-current" />
               {t("ctaSecondary")}
@@ -105,7 +105,7 @@ export default function Hero() {
               {/* Sidebar */}
               <div className="hidden sm:flex w-[200px] bg-[hsl(240,10%,4%)] flex-col p-4 gap-1 shrink-0 border-r border-white/[0.04]">
                 <div className="flex items-center gap-2 px-3 py-2 mb-4">
-                  <div className="w-7 h-7 bg-primary rounded-lg flex items-center justify-center shadow-[0_0_12px_rgba(124,95,255,0.3)]">
+                  <div className="w-7 h-7 bg-gradient-to-b from-white/15 to-white/5 border border-white/10 rounded-lg flex items-center justify-center">
                     <span className="text-white font-bold text-[10px]">M</span>
                   </div>
                   <span className="text-[13px] font-semibold text-white/90">MarketFlow</span>
@@ -122,7 +122,7 @@ export default function Hero() {
                     key={item.label}
                     className={`px-3 py-2 rounded-lg text-[12px] font-medium transition-colors ${
                       item.active
-                        ? "bg-primary/20 text-primary shadow-[inset_0_0_12px_rgba(124,95,255,0.1)]"
+                        ? "bg-white/[0.08] text-white/80"
                         : "text-white/25"
                     }`}
                   >
@@ -143,7 +143,7 @@ export default function Hero() {
                     <div className="bg-white/[0.04] border border-white/[0.06] rounded-lg px-3 py-1.5 text-[10px] text-white/20">
                       Sök kunder...
                     </div>
-                    <div className="w-7 h-7 bg-primary/20 rounded-full flex items-center justify-center text-[10px] font-bold text-primary">MT</div>
+                    <div className="w-7 h-7 bg-white/[0.08] border border-white/[0.06] rounded-full flex items-center justify-center text-[10px] font-bold text-white/50">MT</div>
                   </div>
                 </div>
 
@@ -158,7 +158,7 @@ export default function Hero() {
                     <div key={stat.label} className="bg-white/[0.02] rounded-xl border border-white/[0.06] p-3.5 shimmer">
                       <p className="text-[10px] text-white/30 font-medium">{stat.label}</p>
                       <p className="text-[20px] font-bold font-[family-name:var(--font-heading)] text-white/90 mt-0.5 leading-tight">{stat.value}</p>
-                      <p className="text-[10px] mt-1 font-medium text-primary/60">{stat.delta}</p>
+                      <p className="text-[10px] mt-1 font-medium text-emerald-400/60">{stat.delta}</p>
                     </div>
                   ))}
                 </div>
@@ -182,7 +182,7 @@ export default function Hero() {
                         <div key={stage.stage} className="flex items-center gap-3">
                           <span className="text-[10px] text-white/30 w-[70px] shrink-0 text-right">{stage.stage}</span>
                           <div className="flex-1 h-6 bg-white/[0.02] rounded-md overflow-hidden relative">
-                            <div className="h-full bg-primary/15 rounded-md" style={{ width: stage.width }} />
+                            <div className="h-full bg-white/[0.06] rounded-md" style={{ width: stage.width }} />
                             <div className="absolute inset-0 flex items-center justify-between px-2">
                               <span className="text-[9px] font-medium text-white/30">{stage.count} deals</span>
                               <span className="text-[9px] font-semibold text-white/50">{stage.value}</span>
@@ -193,7 +193,7 @@ export default function Hero() {
                     </div>
                     <div className="mt-3 pt-3 border-t border-white/[0.04] flex items-center justify-between">
                       <span className="text-[10px] text-white/20">Win rate</span>
-                      <span className="text-[11px] font-semibold text-primary/80">17.4%</span>
+                      <span className="text-[11px] font-semibold text-white/70">17.4%</span>
                     </div>
                   </div>
 
@@ -255,13 +255,13 @@ export default function Hero() {
                         { name: "Sara K.", hours: "115h", pct: 81 },
                       ].map((m) => (
                         <div key={m.name} className="flex items-center gap-2.5">
-                          <div className="w-6 h-6 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center text-[9px] font-bold text-primary/60">
+                          <div className="w-6 h-6 rounded-full bg-white/[0.06] border border-white/[0.08] flex items-center justify-center text-[9px] font-bold text-white/40">
                             {m.name.split(" ").map(n => n[0]).join("")}
                           </div>
                           <div className="flex-1">
                             <p className="text-[11px] font-medium text-white/60">{m.name}</p>
                             <div className="w-full h-1 bg-white/[0.04] rounded-full mt-1">
-                              <div className="h-full bg-primary/20 rounded-full" style={{ width: `${m.pct}%` }} />
+                              <div className="h-full bg-white/[0.12] rounded-full" style={{ width: `${m.pct}%` }} />
                             </div>
                           </div>
                           <span className="text-[10px] font-semibold text-white/40">{m.hours}</span>
@@ -281,7 +281,7 @@ export default function Hero() {
                         { text: "Faktura #047 betald", time: "1d" },
                       ].map((a) => (
                         <div key={a.text} className="flex items-start gap-2.5">
-                          <div className="w-1 h-1 rounded-full bg-primary/30 mt-[6px] shrink-0" />
+                          <div className="w-1 h-1 rounded-full bg-white/20 mt-[6px] shrink-0" />
                           <p className="text-[10px] text-white/35 leading-[1.4] flex-1 truncate">{a.text}</p>
                           <span className="text-[9px] text-white/15 shrink-0">{a.time}</span>
                         </div>
@@ -294,7 +294,7 @@ export default function Hero() {
           </div>
 
           {/* Glow under card */}
-          <div className="absolute -bottom-16 left-1/2 -translate-x-1/2 w-2/3 h-32 bg-primary/10 blur-[80px] rounded-full" />
+          <div className="absolute -bottom-16 left-1/2 -translate-x-1/2 w-2/3 h-32 bg-white/[0.03] blur-[80px] rounded-full" />
         </motion.div>
       </div>
     </section>

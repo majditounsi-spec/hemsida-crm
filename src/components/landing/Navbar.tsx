@@ -36,7 +36,7 @@ export default function Navbar() {
       <div className="max-w-6xl mx-auto px-6">
         <div className="flex items-center justify-between h-[72px]">
           <Link href="/" className="flex items-center gap-2.5 group">
-            <div className="w-9 h-9 bg-primary rounded-[10px] flex items-center justify-center transition-transform duration-300 group-hover:scale-105 shadow-[0_0_20px_rgba(124,95,255,0.3)]">
+            <div className="w-9 h-9 bg-gradient-to-b from-white/15 to-white/5 border border-white/10 rounded-[10px] flex items-center justify-center transition-transform duration-300 group-hover:scale-105">
               <span className="text-white font-bold text-[15px] font-[family-name:var(--font-heading)]">
                 M
               </span>
@@ -83,7 +83,7 @@ export default function Navbar() {
               href="https://majditounsi-spec.github.io/crm-ads/"
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-primary text-white px-5 py-2.5 rounded-full text-[13px] font-medium hover:bg-primary/90 transition-all duration-200 shadow-[0_0_20px_rgba(124,95,255,0.25)]"
+              className="bg-gradient-to-b from-white/15 to-white/5 text-white/90 border border-white/10 px-5 py-2.5 rounded-full text-[13px] font-medium hover:from-white/20 hover:to-white/10 transition-all duration-200"
             >
               {t("getStarted")}
             </a>

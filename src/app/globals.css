@@ -28,27 +28,27 @@
 }
 
 :root {
-  --background: hsl(240 10% 3.9%);
-  --foreground: hsl(0 0% 95%);
-  --primary: hsl(243 75% 59%);
+  --background: hsl(220 6% 7%);
+  --foreground: hsl(220 10% 93%);
+  --primary: hsl(243 60% 62%);
   --primary-foreground: hsl(0 0% 100%);
-  --secondary: hsl(240 6% 10%);
-  --secondary-foreground: hsl(0 0% 95%);
-  --muted: hsl(240 6% 10%);
-  --muted-foreground: hsl(240 5% 50%);
-  --accent: hsl(243 40% 15%);
-  --accent-foreground: hsl(243 75% 80%);
-  --destructive: hsl(0 72% 51%);
-  --border: hsl(240 6% 14%);
-  --input: hsl(240 6% 14%);
-  --ring: hsl(243 75% 59%);
-  --card: hsl(240 6% 6%);
-  --card-foreground: hsl(0 0% 95%);
-  --sidebar-background: hsl(240 10% 3.9%);
-  --sidebar-foreground: hsl(240 5% 50%);
-  --sidebar-primary: hsl(243 75% 59%);
+  --secondary: hsl(220 5% 12%);
+  --secondary-foreground: hsl(220 10% 93%);
+  --muted: hsl(220 5% 12%);
+  --muted-foreground: hsl(220 5% 48%);
+  --accent: hsl(220 8% 16%);
+  --accent-foreground: hsl(220 10% 80%);
+  --destructive: hsl(0 65% 51%);
+  --border: hsl(220 5% 16%);
+  --input: hsl(220 5% 16%);
+  --ring: hsl(243 60% 62%);
+  --card: hsl(220 5% 9%);
+  --card-foreground: hsl(220 10% 93%);
+  --sidebar-background: hsl(220 6% 6%);
+  --sidebar-foreground: hsl(220 5% 48%);
+  --sidebar-primary: hsl(243 60% 62%);
   --sidebar-primary-foreground: hsl(0 0% 100%);
-  --sidebar-accent: hsl(240 6% 10%);
+  --sidebar-accent: hsl(220 5% 12%);
   --sidebar-accent-foreground: hsl(0 0% 100%);
   --radius: 1rem;
 }
@@ -72,38 +72,38 @@ h1, h2, h3, h4, h5, h6 {
   letter-spacing: -0.03em;
 }
 
-/* Glass effect — dark mode */
+/* Glass effect — graphite silver */
 .glass {
-  background: rgba(10, 10, 15, 0.7);
+  background: rgba(18, 19, 22, 0.72);
   backdrop-filter: saturate(180%) blur(20px);
   -webkit-backdrop-filter: saturate(180%) blur(20px);
 }
 
-/* Gradient text */
+/* Gradient text — silver to white */
 .gradient-text {
-  background: linear-gradient(135deg, hsl(243 75% 65%) 0%, hsl(280 80% 65%) 40%, hsl(330 75% 60%) 100%);
+  background: linear-gradient(135deg, hsl(220 10% 80%) 0%, hsl(0 0% 100%) 45%, hsl(220 10% 75%) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
-/* Glow effects */
+/* Glow effects — subtle silver */
 .glow {
   box-shadow:
-    0 0 0 1px rgba(124, 95, 255, 0.1),
-    0 1px 2px rgba(0, 0, 0, 0.2),
-    0 4px 16px rgba(124, 95, 255, 0.06);
+    0 0 0 1px rgba(255, 255, 255, 0.06),
+    0 1px 2px rgba(0, 0, 0, 0.3),
+    0 4px 16px rgba(0, 0, 0, 0.15);
 }
 
 .glow-lg {
   box-shadow:
-    0 0 0 1px rgba(124, 95, 255, 0.08),
+    0 0 0 1px rgba(255, 255, 255, 0.06),
     0 2px 8px rgba(0, 0, 0, 0.3),
-    0 8px 32px rgba(124, 95, 255, 0.1),
-    0 32px 64px rgba(124, 95, 255, 0.05);
+    0 12px 40px rgba(0, 0, 0, 0.25),
+    0 0 60px rgba(255, 255, 255, 0.02);
 }
 
-/* Shimmer animation */
+/* Shimmer animation — silver */
 @keyframes shimmer {
   0% { background-position: -200% 0; }
   100% { background-position: 200% 0; }
@@ -113,7 +113,7 @@ h1, h2, h3, h4, h5, h6 {
   background: linear-gradient(
     90deg,
     transparent 0%,
-    rgba(124, 95, 255, 0.04) 50%,
+    rgba(255, 255, 255, 0.02) 50%,
     transparent 100%
   );
   background-size: 200% 100%;
@@ -123,26 +123,26 @@ h1, h2, h3, h4, h5, h6 {
 /* Floating animation */
 @keyframes float {
   0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-8px); }
+  50% { transform: translateY(-6px); }
 }
 
 .float {
   animation: float 6s ease-in-out infinite;
 }
 
-/* Grid background pattern */
+/* Grid background pattern — graphite */
 .grid-bg {
   background-image:
-    linear-gradient(rgba(124, 95, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(124, 95, 255, 0.03) 1px, transparent 1px);
-  background-size: 64px 64px;
+    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 72px 72px;
 }
 
 /* Radial glow */
 .radial-glow {
   background: radial-gradient(
     600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
-    rgba(124, 95, 255, 0.06),
+    rgba(255, 255, 255, 0.03),
     transparent 40%
   );
 }
@@ -163,7 +163,7 @@ h1, h2, h3, h4, h5, h6 {
   --input: hsl(220 16% 82%);
   --ring: hsl(243 75% 52%);
   --card: hsl(0 0% 100%);
-  --card-foreground: hsl(220 40% 8%);
+  --card-foreground: hsl(220 40% 12%);
   --sidebar-background: hsl(220 30% 14%);
   --sidebar-foreground: hsl(220 14% 50%);
 }
