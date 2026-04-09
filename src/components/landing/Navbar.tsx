@@ -2,22 +2,44 @@
 
 import { useTranslations } from "next-intl";
 import { Link, usePathname, useRouter } from "@/i18n/routing";
-import { Menu, X, Globe } from "lucide-react";
-import { useState, useEffect } from "react";
+import { Menu, X, Globe, Users, FolderKanban, BarChart3, Clock, Zap, PieChart, ChevronDown } from "lucide-react";
+import { useState, useEffect, useRef } from "react";
 import { useLocale } from "next-intl";
+
+const featureItems = [
+  { key: "contacts", icon: Users, href: "#features" },
+  { key: "projects", icon: FolderKanban, href: "#features" },
+  { key: "googleAds", icon: BarChart3, href: "#features" },
+  { key: "timeTracking", icon: Clock, href: "#features" },
+  { key: "automations", icon: Zap, href: "#automations" },
+  { key: "analytics", icon: PieChart, href: "#features" },
+];
 
 export default function Navbar() {
   const t = useTranslations("common");
+  const ft = useTranslations("landing.features");
   const locale = useLocale();
   const router = useRouter();
   const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [featuresOpen, setFeaturesOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useEffect(() => {
+    function handleClickOutside(e: MouseEvent) {
+      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
+        setFeaturesOpen(false);
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
   function switchLocale() {
@@ -47,19 +69,55 @@ export default function Navbar() {
           </Link>
 
           <div className="hidden md:flex items-center gap-1">
-            {[
-              { href: "#features", label: locale === "sv" ? "Funktioner" : "Features" },
-              { href: "#integrations", label: locale === "sv" ? "Integrationer" : "Integrations" },
-              { href: "#pricing", label: locale === "sv" ? "Priser" : "Pricing" },
-            ].map((item) => (
-              <a
-                key={item.href}
-                href={item.href}
-                className="px-4 py-2 text-[14px] text-muted-foreground hover:text-foreground transition-colors duration-200 rounded-full"
+            {/* Features mega dropdown */}
+            <div className="relative" ref={dropdownRef}>
+              <button
+                onClick={() => setFeaturesOpen(!featuresOpen)}
+                className="px-4 py-2 text-[14px] text-muted-foreground hover:text-foreground transition-colors duration-200 rounded-full flex items-center gap-1"
               >
-                {item.label}
-              </a>
-            ))}
+                {locale === "sv" ? "Funktioner" : "Features"}
+                <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${featuresOpen ? "rotate-180" : ""}`} />
+              </button>
+
+              {featuresOpen && (
+                <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[520px] glass border border-white/[0.08] rounded-[16px] p-5 shadow-[0_8px_40px_rgba(0,0,0,0.3)]">
+                  <div className="grid grid-cols-2 gap-1">
+                    {featureItems.map((item) => (
+                      <a
+                        key={item.key}
+                        href={item.href}
+                        onClick={() => setFeaturesOpen(false)}
+                        className="flex items-start gap-3 p-3 rounded-[12px] hover:bg-white/[0.06] transition-colors duration-200 group/item"
+                      >
+                        <div className="w-9 h-9 rounded-[10px] bg-white/[0.04] border border-white/[0.06] flex items-center justify-center shrink-0 group-hover/item:bg-primary/15 group-hover/item:border-primary/25 transition-all duration-200">
+                          <item.icon className="w-4 h-4 text-white/30 group-hover/item:text-primary transition-colors duration-200" />
+                        </div>
+                        <div>
+                          <p className="text-[13px] font-medium text-foreground/90">{ft(`${item.key}.title`)}</p>
+                          <p className="text-[11px] text-white/30 leading-[1.5] mt-0.5 line-clamp-2">{ft(`${item.key}.description`)}</p>
+                        </div>
+                      </a>
+                    ))}
+                  </div>
+
+                  <div className="mt-3 pt-3 border-t border-white/[0.06] flex items-center justify-between">
+                    <a href="#integrations" onClick={() => setFeaturesOpen(false)} className="text-[12px] text-white/30 hover:text-white/60 transition-colors">
+                      {locale === "sv" ? "Alla integrationer →" : "All integrations →"}
+                    </a>
+                    <a href="#automations" onClick={() => setFeaturesOpen(false)} className="text-[12px] text-white/30 hover:text-white/60 transition-colors">
+                      {locale === "sv" ? "Automationer →" : "Automations →"}
+                    </a>
+                  </div>
+                </div>
+              )}
+            </div>
+
+            <a href="#integrations" className="px-4 py-2 text-[14px] text-muted-foreground hover:text-foreground transition-colors duration-200 rounded-full">
+              {locale === "sv" ? "Integrationer" : "Integrations"}
+            </a>
+            <a href="#pricing" className="px-4 py-2 text-[14px] text-muted-foreground hover:text-foreground transition-colors duration-200 rounded-full">
+              {locale === "sv" ? "Priser" : "Pricing"}
+            </a>
 
             <button
               onClick={switchLocale}
@@ -101,12 +159,23 @@ export default function Navbar() {
       {mobileOpen && (
         <div className="md:hidden glass border-t border-white/[0.06] px-6 pb-6 pt-2">
           <div className="space-y-1">
-            {["features", "integrations", "pricing"].map((section) => (
-              <a key={section} href={`#${section}`} className="block px-3 py-2.5 text-[15px] text-foreground/70 rounded-xl hover:bg-white/[0.05] transition-colors capitalize">
-                {section}
+            <p className="px-3 pt-3 pb-1 text-[10px] text-white/20 uppercase tracking-wider font-semibold">
+              {locale === "sv" ? "Funktioner" : "Features"}
+            </p>
+            {featureItems.map((item) => (
+              <a key={item.key} href={item.href} onClick={() => setMobileOpen(false)} className="flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-white/[0.05] transition-colors">
+                <item.icon className="w-4 h-4 text-white/25" />
+                <span className="text-[14px] text-foreground/70">{ft(`${item.key}.title`)}</span>
               </a>
             ))}
-            <button onClick={switchLocale} className="flex items-center gap-2 w-full px-3 py-2.5 text-[15px] text-muted-foreground rounded-xl hover:bg-white/[0.05] transition-colors">
+            <div className="h-px bg-white/[0.06] my-2" />
+            <a href="#integrations" onClick={() => setMobileOpen(false)} className="block px-3 py-2.5 text-[14px] text-foreground/70 rounded-xl hover:bg-white/[0.05]">
+              {locale === "sv" ? "Integrationer" : "Integrations"}
+            </a>
+            <a href="#pricing" onClick={() => setMobileOpen(false)} className="block px-3 py-2.5 text-[14px] text-foreground/70 rounded-xl hover:bg-white/[0.05]">
+              {locale === "sv" ? "Priser" : "Pricing"}
+            </a>
+            <button onClick={switchLocale} className="flex items-center gap-2 w-full px-3 py-2.5 text-[14px] text-muted-foreground rounded-xl hover:bg-white/[0.05] transition-colors">
               <Globe className="w-4 h-4" />
               {locale === "sv" ? "English" : "Svenska"}
             </button>
