@@ -60,7 +60,7 @@ export default function Hero() {
               rel="noopener noreferrer"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
-              className="relative bg-gradient-to-b from-white/20 to-white/5 text-white border border-white/15 px-8 py-4 rounded-full text-[15px] font-semibold hover:from-white/25 hover:to-white/10 transition-all duration-200 flex items-center gap-2.5 shadow-[0_2px_20px_rgba(255,255,255,0.06)]"
+              className="relative bg-primary text-white px-8 py-4 rounded-full text-[15px] font-semibold hover:bg-primary/90 transition-all duration-200 flex items-center gap-2.5 shadow-[0_0_30px_rgba(124,95,255,0.35)]"
             >
               {t("cta")}
               <ArrowRight className="w-4 h-4" />
@@ -105,7 +105,7 @@ export default function Hero() {
               {/* Sidebar */}
               <div className="hidden sm:flex w-[200px] bg-[hsl(240,10%,4%)] flex-col p-4 gap-1 shrink-0 border-r border-white/[0.04]">
                 <div className="flex items-center gap-2 px-3 py-2 mb-4">
-                  <div className="w-7 h-7 bg-gradient-to-b from-white/15 to-white/5 border border-white/10 rounded-lg flex items-center justify-center">
+                  <div className="w-7 h-7 bg-primary rounded-lg flex items-center justify-center shadow-[0_0_12px_rgba(124,95,255,0.3)]">
                     <span className="text-white font-bold text-[10px]">M</span>
                   </div>
                   <span className="text-[13px] font-semibold text-white/90">MarketFlow</span>
@@ -122,7 +122,7 @@ export default function Hero() {
                     key={item.label}
                     className={`px-3 py-2 rounded-lg text-[12px] font-medium transition-colors ${
                       item.active
-                        ? "bg-white/[0.08] text-white/80"
+                        ? "bg-primary/20 text-primary shadow-[inset_0_0_12px_rgba(124,95,255,0.1)]"
                         : "text-white/25"
                     }`}
                   >

@@ -127,7 +127,7 @@ export default function Integrations() {
             href="https://majditounsi-spec.github.io/crm-ads/"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 bg-gradient-to-b from-white/15 to-white/5 text-white/90 border border-white/10 px-7 py-3.5 rounded-full text-[14px] font-medium hover:from-white/20 hover:to-white/10 transition-all"
+            className="inline-flex items-center gap-2 bg-primary text-white px-7 py-3.5 rounded-full text-[14px] font-medium hover:bg-primary/90 transition-all shadow-[0_0_24px_rgba(124,95,255,0.25)]"
           >
             Testa MarketFlow
             <ArrowRight className="w-4 h-4" />
