@@ -1,20 +1,39 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import { createClient } from "@/lib/supabase/client";
 import { Link } from "@/i18n/routing";
+import { oauthLogin, handleAuthCallback, AuthError } from "@netlify/identity";
+import { useEffect, Suspense } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
 
-export default function LoginPage() {
+function LoginContent() {
   const t = useTranslations("login");
+  const router = useRouter();
+  const searchParams = useSearchParams();
+
+  useEffect(() => {
+    async function processAuth() {
+      try {
+        const result = await handleAuthCallback();
+        if (result && result.user) {
+          const redirect = searchParams.get("redirect") || "/en/dashboard";
+          window.location.href = redirect; // Force full reload to send cookie to Next.js middleware
+        }
+      } catch (error) {
+        if (error instanceof AuthError) {
+          console.error(error.message);
+        }
+      }
+    }
+    processAuth();
+  }, [router, searchParams]);
 
   async function handleGoogleLogin() {
-    const supabase = createClient();
-    await supabase.auth.signInWithOAuth({
-      provider: "google",
-      options: {
-        redirectTo: `${window.location.origin}/auth/callback`,
-      },
-    });
+    try {
+      await oauthLogin("google");
+    } catch (e) {
+      console.error(e);
+    }
   }
 
   return (
@@ -71,5 +90,13 @@ export default function LoginPage() {
         </div>
       </div>
     </div>
+  );
+}
+
+export default function LoginPage() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <LoginContent />
+    </Suspense>
   );
 }

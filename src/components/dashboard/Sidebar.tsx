@@ -16,8 +16,7 @@ import {
   ChevronRight,
 } from "lucide-react";
 import { useState } from "react";
-import { createClient } from "@/lib/supabase/client";
-import { useRouter } from "next/navigation";
+import { logout } from "@netlify/identity";
 import { cn } from "@/lib/utils";
 
 const navItems = [
@@ -33,13 +32,15 @@ export default function Sidebar() {
   const t = useTranslations("common");
   const pathname = usePathname();
   const locale = useLocale();
-  const router = useRouter();
   const [collapsed, setCollapsed] = useState(false);
 
   async function handleLogout() {
-    const supabase = createClient();
-    await supabase.auth.signOut();
-    router.push(`/${locale}/login`);
+    try {
+      await logout();
+      window.location.href = `/${locale}/login`;
+    } catch (e) {
+      console.error(e);
+    }
   }
 
   return (
